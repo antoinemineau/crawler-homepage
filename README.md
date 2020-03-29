@@ -1,16 +1,12 @@
-# Package Template
-Repository template for our packages
+# [Wordpress plugin] Crawler homepage
 
-# Usage
-When creating a new repository for a package or a plugin, select this repository as the template. It will initialize the new repository with all the structure & files contained in the template.
+This program was done for a technical assessment for WP Media.
 
-# Content
-* `bin/install-wp-tests.sh`: installer for WordPress tests suite
-* `.editorconfig`: config file for your IDE to follow our coding standards
-* `.gitattributes`: list of directories & files excluded from export
-* `.gitignore`: list of directories & files excluded from versioning
-* `.travis.yml`: Travis-CI configuration file
-* `composer.json`: Base composer file to customize for the project
-* `LICENSE`: License file using GPLv3
-* `phpcs.xml`: Base PHP Code Sniffer configuration file to customize for the project
-* `README.md`: The readme displayed on Github, to customize for the project
+The goal is to make a Wordpress plugin that :
+
+* crawls the homepage to extract only internal links
+* create a homepage.html
+* create a sitemap.html with all the internal links
+* add a link to the website to the generated sitemap.html
+
+The explaination file for the project can be found [here](https://github.com/antoinemineau/crawler-homepage/Explaination.md).
