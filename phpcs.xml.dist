@@ -26,15 +26,19 @@
 
 	<rule ref="WordPress">
         <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+
+        <!-- Temporarily disabled for code review. -->
+        <exclude name="Generic.Formatting.MultipleStatementAlignment.IncorrectWarning"/>
+        <exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect"/>
 	</rule>
     <rule ref="WordPress.WP.I18n">
         <properties>
-            <property name="text_domain" type="array" value="rocket" />
+            <property name="text_domain" type="array" value="crawler-homepage" />
         </properties>
     </rule>
     <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
         <properties>
-            <property name="prefixes" type="array" value="rocket,wp_rocket" />
+            <property name="prefixes" type="array" value="Crawler_Homepage, CH_" />
         </properties>
     </rule>
     <rule ref="WordPress.Files.FileName">
@@ -46,6 +50,9 @@
 		<exclude name="Squiz.Commenting.FileComment.Missing"/>
 		<exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
 		<exclude name="Squiz.Commenting.ClassComment.Missing"/>
+
+        <!-- Temporarily disabled for code review. -->
+        <exclude name="Generic.Commenting.DocComment.MissingShort"/>
 	</rule>
 
 	<!-- Rules: WordPress Coding Standards - see
