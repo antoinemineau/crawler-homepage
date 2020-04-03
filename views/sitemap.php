@@ -3,7 +3,32 @@
  * Sitemap view
  */
 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+
 defined( 'ABSPATH' ) || die( 'Blocked' );
+
+/**
+ * @CODEREVIEW:
+ * 1. The view should be HTML with PHP embedded in it for dynamic content.
+ * 2. Processing code, i.e. get_option(), should be in the business logic and not in the view.
+ *    The code here is simplified when moving the data prep into the business logic.
+ *    For example:
+ *       - business logic that handles the view:
+ *
+                $option = get_option( CH_SLUG, [] );
+ 			    $links  = ! empty( $option['links'] ) ? $option['links'] : [];
+ *       - in the view:
+                <?php foreach ( $links as $link ) :
+					$link = esc_url( $link ); ?>
+					<a href="<?php echo $link; ?>"><?php echo $link; ?></a><br>
+				<?php endforeach; ?>
+ * 3. Security issue. Links are not being escaped.
+ *        - Notice in the example above, the link is escaped with esc_url().
+ * 4. What if the "links" key doesn't exist in `$plugin_option['links']`? PHP warning and notice is thrown. Guard the code to prevent this.
+ *            "Warning: Invalid argument supplied for foreach()"
+ *            "Notice: Undefined index: links"
+ * 5. Don't use unserialize(). It's a security issue and unnecessary.
+ */
 
 $sitemap = '<html><head><title>Sitemap</title></head><body><h2>Sitemap</h2>';
 
@@ -16,6 +41,5 @@ if ( false !== $plugin_option ) {
 }
 
 $sitemap .= '</body></html>';
-
 
 return $sitemap;
