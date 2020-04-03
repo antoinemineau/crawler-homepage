@@ -24,7 +24,10 @@ defined( 'ABSPATH' ) || die( 'Blocked' );
 				<?php endforeach; ?>
  * 3. Security issue. Links are not being escaped.
  *        - Notice in the example above, the link is escaped with esc_url().
- * 4. Don't use unserialize(). It's a security issue and unnecessary.
+ * 4. What if the "links" key doesn't exist in `$plugin_option['links']`? PHP warning and notice is thrown. Guard the code to prevent this.
+ *            "Warning: Invalid argument supplied for foreach()"
+ *            "Notice: Undefined index: links"
+ * 5. Don't use unserialize(). It's a security issue and unnecessary.
  */
 
 $sitemap = '<html><head><title>Sitemap</title></head><body><h2>Sitemap</h2>';
