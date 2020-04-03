@@ -27,9 +27,11 @@
 	<rule ref="WordPress">
         <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
 
-        <!-- Temporarily disabled for code review. -->
+        <!-- @CODEREVIEW Temporarily disabled for code review. -->
         <exclude name="Generic.Formatting.MultipleStatementAlignment.IncorrectWarning"/>
         <exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect"/>
+        <exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact"/>
+        <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed"/>
 	</rule>
     <rule ref="WordPress.WP.I18n">
         <properties>
@@ -51,7 +53,7 @@
 		<exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
 		<exclude name="Squiz.Commenting.ClassComment.Missing"/>
 
-        <!-- Temporarily disabled for code review. -->
+        <!-- @CODEREVIEW Temporarily disabled for code review. -->
         <exclude name="Generic.Commenting.DocComment.MissingShort"/>
 	</rule>
 
